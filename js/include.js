@@ -5,7 +5,7 @@
 (function() {
 
     var include = document.createElement("iframe");
-    include.style.position = "absolute"; /* set absolute will not affect layout */
+    include.style.position = "fixed"; /* set fixed will not affect layout */
     include.frameBorder = 0;
 
     /* make sure that iframe is the first element in body */
@@ -19,6 +19,8 @@
 
     /* adjust the iframe size equal to the window size */
     function adjustSize() {
+        include.style.top = "0px";
+        include.style.left = "0px";
         include.width = window.innerWidth;
         include.height = window.innerHeight;
     }
