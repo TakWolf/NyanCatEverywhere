@@ -2,39 +2,12 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        #include {
-            position: absolute;
-        }
-    </style>
+    <title>Nyan Doge</title>
+    <link type="text/css" rel="stylesheet" href="css/include.css">
 </head>
 <body>
 
-    <iframe id="include" src="http://blog.takwolf.com" frameborder="0" seamless="seamless"></iframe>
-
-    <script>
-        (function() {
-            var include = document.getElementById("include");
-
-            function adapterIFrame() {
-                include.style.width = window.innerWidth + "px";
-                include.style.height = window.innerHeight + "px";
-            }
-            window.addEventListener("resize", adapterIFrame, false);
-            adapterIFrame();
-
-            function loadUrl() {
-                include.src = window.location.hash.substr(1);
-            }
-            window.addEventListener("hashchange", loadUrl, false);
-            loadUrl();
-        })();
-    </script>
+    <script src="js/include.js"></script>
 
 </body>
 </html>
