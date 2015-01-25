@@ -20,12 +20,19 @@
     <script>
         (function() {
             var include = document.getElementById("include");
+
             function adapterIFrame() {
                 include.style.width = window.innerWidth + "px";
                 include.style.height = window.innerHeight + "px";
             }
             window.addEventListener("resize", adapterIFrame, false);
             adapterIFrame();
+
+            function loadUrl() {
+                include.src = window.location.hash.substr(1);
+            }
+            window.addEventListener("hashchange", loadUrl, false);
+            loadUrl();
         })();
     </script>
 
