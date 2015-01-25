@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #include {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <iframe id="include" src="http://blog.takwolf.com" frameborder="0" seamless="seamless"></iframe>
+
+    <script>
+        function adapterIFrame() {
+            var include = document.getElementById("include");
+            include.style.width = window.innerWidth + "px";
+            include.style.height = window.innerHeight + "px";
+        }
+        adapterIFrame();
+        window.onresize = adapterIFrame;
+    </script>
+
+</body>
+</html>
