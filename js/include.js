@@ -18,12 +18,12 @@
     }, false);
 
     /* adjust the iframe size equal to the window size */
-    function adapterIFrame() {
-        include.style.width = window.innerWidth + "px";
-        include.style.height = window.innerHeight + "px";
+    function adjustSize() {
+        include.width = window.innerWidth;
+        include.height = window.innerHeight;
     }
-    adapterIFrame();
-    window.addEventListener("resize", adapterIFrame, false);
+    adjustSize();
+    window.addEventListener("resize", adjustSize, false);
 
     /* listen to the hash url change to load the page */
     function loadUrl() {
