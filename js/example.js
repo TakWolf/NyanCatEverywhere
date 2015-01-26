@@ -3,7 +3,7 @@
  */
 (function() {
 
-    var label = document.getElementById("label");
+    var label = document.getElementById('label');
 
     /* load callback */
     function load() {
@@ -12,11 +12,11 @@
 
     /* update callback */
     function update(dt) {
-        label.innerText = "This is a example page. FPS : " + Math.floor(1 / dt);
+        label.innerText = 'This is a example page. FPS : ' + Math.floor(1 / dt);
     }
 
-    /* in load callback to make sure body is exist */
-    window.addEventListener("load", function() {
+    /* in load callback to make sure body element is exist */
+    window.addEventListener('load', function() {
         /* make a fps loop frame */
         var fps = 60;
         var lastTime = new Date().getTime();
