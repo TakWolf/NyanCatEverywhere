@@ -20,7 +20,7 @@
             this.y = getRandomNum(0, window.innerHeight);
             this.img.style.left = this.x + 'px';
             this.img.style.top = this.y + 'px';
-            this.speed = getRandomNum(3, 10);
+            this.speed = getRandomNum(100, 500);
         }
 
         this.img = document.createElement('img');
@@ -38,7 +38,7 @@
                     this.reset();
                 }
             } else {
-                this.x += this.speed;
+                this.x += this.speed * dt;
                 this.img.style.left = this.x + 'px';
                 if (this.x > window.innerWidth + this.img.width) {
                     this.wait = true;
@@ -53,9 +53,18 @@
 
     /* load callback */
     function load() {
-        for (var n = 0; n < 8; n++) {
+        /* init cats */
+        for (var n = 0; n < 10; n++) {
             catArray[n] = new Cat();
         }
+        /* play bgm */
+        var bgm = document.createElement('audio');
+        bgm.src = 'bgm/nyancat.mp3';
+        bgm.autoplay = 'autoplay';
+        bgm.loop = 'loop'; /* this is not work , I don't know why */
+        window.setInterval(function() {
+            bgm.src = 'bgm/nyancat.mp3'; /* only this way is work , I am crazy !!! */
+        }, 27097.687);
     }
 
     /* update callback */
