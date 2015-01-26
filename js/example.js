@@ -3,14 +3,16 @@
  */
 (function() {
 
+    var label = document.getElementById("label");
+
     /* load callback */
     function load() {
-
+        // nothing to do
     }
 
     /* update callback */
     function update(dt) {
-
+        label.innerText = "This is a example page. FPS : " + Math.floor(1 / dt);
     }
 
     /* in load callback to make sure body is exist */
