@@ -12,20 +12,57 @@
 
     /* cat class */
     function Cat() {
-        this.x = -100;
-        this.y = getRandomNum(100, window.innerHeight - 100);
-        this.img = document.createElement('img')
+
+        /* reset position xy and speed */
+        this.reset = function() {
+            this.img.width = getRandomNum(100, 200);
+            this.x = -this.img.width;
+            this.y = getRandomNum(0, window.innerHeight);
+            this.img.style.left = this.x + 'px';
+            this.img.style.top = this.y + 'px';
+            this.speed = getRandomNum(3, 10);
+        }
+
+        this.img = document.createElement('img');
+        this.img.src = 'img/nyancat.gif';
+        this.img.style.position = 'fixed';
+        this.wait = true; /* ture is not display */
+        document.body.appendChild(this.img);
+        this.reset();
+
+        /* this should call in loop update callback */
+        this.update = function(dt) {
+            if (this.wait) {
+                if (getRandomNum(0, 180) === 0) { /* about 3 seconds */
+                    this.wait = false;
+                    this.reset();
+                }
+            } else {
+                this.x += this.speed;
+                this.img.style.left = this.x + 'px';
+                if (this.x > window.innerWidth + this.img.width) {
+                    this.wait = true;
+                }
+            }
+        }
 
     }
 
+    /* cat array used to manage */
+    var catArray = new Array();
+
     /* load callback */
     function load() {
-
+        for (var n = 0; n < 8; n++) {
+            catArray[n] = new Cat();
+        }
     }
 
     /* update callback */
     function update(dt) {
-
+        for (var n = 0; n < catArray.length; n++) {
+            catArray[n].update(dt);
+        }
     }
 
     /* in load callback to make sure body element is exist */
