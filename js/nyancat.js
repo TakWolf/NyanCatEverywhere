@@ -61,9 +61,9 @@
         var bgm = document.createElement('audio');
         bgm.src = 'bgm/nyancat.mp3';
         bgm.autoplay = 'autoplay';
-        bgm.loop = 'loop'; /* this is not work , I don't know why */
+        bgm.loop = 'loop'; /* FIXME : this is not work , I don't know why */
         window.setInterval(function() {
-            bgm.src = 'bgm/nyancat.mp3'; /* only this way is work , I am crazy !!! */
+            bgm.src = 'bgm/nyancat.mp3'; /* FIXME : only this way is work , I am crazy !!! */
         }, 27097.687);
     }
 
