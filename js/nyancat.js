@@ -17,10 +17,10 @@
         this.reset = function() {
             this.img.width = getRandomNum(100, 200);
             this.x = -this.img.width;
-            this.y = getRandomNum(0, window.innerHeight);
+            this.y = getRandomNum(0, window.innerHeight - 100);
             this.img.style.left = this.x + 'px';
             this.img.style.top = this.y + 'px';
-            this.speed = getRandomNum(100, 500);
+            this.speed = getRandomNum(1, 5);
         }
 
         this.img = document.createElement('img');
@@ -38,7 +38,7 @@
                     this.reset();
                 }
             } else {
-                this.x += this.speed * dt;
+                this.x += this.speed;
                 this.img.style.left = this.x + 'px';
                 if (this.x > window.innerWidth + this.img.width) {
                     this.wait = true;
@@ -49,7 +49,7 @@
     }
 
     /* cat array used to manage */
-    var catArray = new Array();
+    var catArray = [];
 
     /* load callback */
     function load() {
@@ -63,7 +63,7 @@
         bgm.autoplay = 'autoplay';
         bgm.loop = 'loop'; /* FIXME : this is not work , I don't know why */
         window.setInterval(function() {
-            bgm.src = 'bgm/nyancat.mp3'; /* FIXME : only this way is work , I am crazy !!! */
+            bgm.src = 'bgm/nyancat.mp3'; /* FIXME : only this way can work , I am crazy !!! */
         }, 27097.687);
     }
 
