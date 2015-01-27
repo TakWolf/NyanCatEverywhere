@@ -5,22 +5,134 @@
     <title>Nyan</title>
     <link type="text/css" rel="stylesheet" href="css/global.css">
     <style>
+        @font-face {
+            font-family: "Roboto";
+            src: url(font/Roboto-Thin.ttf);
+            font-weight: 200;
+        }
+        @font-face {
+            font-family: "Roboto";
+            src: url(font/Roboto-Light.ttf);
+            font-weight: 300;
+        }
+        @font-face {
+            font-family: "Roboto";
+            src: url(font/Roboto-Regular.ttf);
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: "Roboto";
+            src: url(font/Roboto-Medium.ttf);
+            font-weight: 500;
+        }
+        @font-face {
+            font-family: "Roboto";
+            src: url(font/Roboto-Bold.ttf);
+            font-weight: 700;
+        }
+        html {
+            line-height: 1.5;
+            font-family: "Roboto", sans-serif;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.87);
+        }
+        @media only screen and (min-width: 0) {
+            html {
+                font-size: 14px;
+            }
+        }
+        @media only screen and (min-width: 992px) {
+            html {
+                font-size: 14.5px;
+            }
+        }
+        @media only screen and (min-width: 1200px) {
+            html {
+                font-size: 15px;
+            }
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 400;
+        }
+        h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+            font-weight: inherit;
+        }
+        h1 {
+            font-size: 4.2rem;
+            line-height: 4.62rem;
+            margin: 2.1rem 0 1.68rem 0;
+        }
+        h2 {
+            font-size: 3.56rem;
+            line-height: 3.916rem;
+            margin: 1.78rem 0 1.424rem 0;
+        }
+        h3 {
+            font-size: 2.92rem;
+            line-height: 3.212rem;
+            margin: 1.46rem 0 1.168rem 0;
+        }
+        h4 {
+            font-size: 2.28rem;
+            line-height: 2.508rem;
+            margin: 1.14rem 0 0.912rem 0;
+        }
+        h5 {
+            font-size: 1.64rem;
+            line-height: 1.804rem;
+            margin: 0.82rem 0 0.656rem 0;
+        }
+        h6 {
+            font-size: 1rem;
+            line-height: 1.1rem;
+            margin: 0.5rem 0 0.4rem 0;
+        }
         body {
             text-align: center;
             background-color: midnightblue;
-            color: brown;
+            color: white;
         }
         #logo-img {
-            position: fixed;
+            position: absolute;
+            top: 0px;
+            left: 0px;
             transform: rotate(45deg);
+            z-index: -1;
+            opacity: 0.5;
         }
-        #title {
-
-            margin: auto 20px;
-
+        .card-page {
+            background-color: gainsboro;
+            margin: 50px;
+            padding: 6px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
         }
-
-
+        .card-img {
+            margin: 6px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .card-input {
+            margin-right: 6px;
+            width: 70%;
+            height: 40px;
+            font-size: 1.64rem;
+        }
+        .card-button {
+            margin-left: 6px;
+            width: 60px;
+            height: 40px;
+            font-size: 1.64rem;
+        }
+        .card-tip {
+            color: black;
+            font-size: 1.4rem;
+        }
+        @media (min-width: 960px) {
+            .card-page {
+                width: 860px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
         #duoshuo-background {
             background-color: lavender;
             padding: 20px;
@@ -41,12 +153,35 @@
     </a>
 
     <img id="logo-img" src="img/nyancat.gif">
-    <h1 id="title">Nyan  ss</h1>
+    <h1>~ Nyan ~</h1>
+    <h4>nyan nyan nyan nyan nyan nyan</h4>
 
+    <div class="card-page">
+        <img class="card-img" src="img/screenshot-nyancat.png">
+        <p class="card-tip">Input a URL like <a href="http://nyan.takwolf.com" target="_blank">http://nyan.takwolf.com</a></p>
+        <p>
+            <input id="go-nyancat" class="card-input" type="text" value="http://nyan.takwolf.com">
+            <input class="card-button" type="button" value="GO" onclick="go('go-nyancat')">
+        </p>
+        <p class="card-tip">or include <a href="http://nyan.takwolf.com/js/nyancat.js" target="_blank">http://nyan.takwolf.com/js/nyancat.js</a> in your page.</p>
+    </div>
 
+    <div class="card-page">
+        <img class="card-img" src="img/screenshot-christmas.png">
+        <p class="card-tip">Input a URL like <a href="http://nyan.takwolf.com" target="_blank">http://nyan.takwolf.com</a></p>
+        <p>
+            <input id="go-christmas" class="card-input" type="text" value="http://nyan.takwolf.com">
+            <input class="card-button" type="button" value="GO" onclick="go('go-christmas')">
+        </p>
+        <p class="card-tip">or include <a href="http://nyan.takwolf.com/js/christmas.js" target="_blank">http://nyan.takwolf.com/js/christmas.js</a> in your page.</p>
+    </div>
 
-
-
+    <script>
+        function go(id) {
+            var input = document.getElementById(id);
+            window.open('http://nyan.takwolf.com/' + id.substr(3) + "#" + input.value);
+        }
+    </script>
 
     <!-- duoshuo -->
     <div id="duoshuo-background">
