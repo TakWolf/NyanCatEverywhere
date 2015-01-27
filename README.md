@@ -10,13 +10,13 @@ Please see [http://nyan.takwolf.com](http://nyan.takwolf.com).
 
 ![NyanCat](/img/screenshot-nyancat.png)
 
-[Demo link](http://nyan.takwolf.com/nyancat#http://nyan.takwolf.com)
+[demo link](http://nyan.takwolf.com/nyancat#http://nyan.takwolf.com)
 
 ### Christmas ###
 
 ![NyanCat](/img/screenshot-christmas.png)
 
-[Demo link](http://nyan.takwolf.com/christmas#http://nyan.takwolf.com)
+[demo link](http://nyan.takwolf.com/christmas#http://nyan.takwolf.com)
 
 ## Author ##
 
