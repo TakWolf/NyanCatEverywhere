@@ -6,6 +6,7 @@
     <link type="text/css" rel="stylesheet" href="css/global.css">
     <style>
         body {
+            text-align: center;
             background-color: midnightblue;
             color: brown;
         }
@@ -13,9 +14,23 @@
             position: fixed;
             transform: rotate(45deg);
         }
-        #duoshuo {
+        #title {
+
+            margin: auto 20px;
+
+        }
+
+
+        #duoshuo-background {
             background-color: lavender;
-            padding: 50px;
+            padding: 20px;
+        }
+        @media (min-width: 1000px) {
+            #duoshuo-content {
+                width: 960px;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
@@ -26,12 +41,18 @@
     </a>
 
     <img id="logo-img" src="img/nyancat.gif">
-    <h1>Nyan  ss</h1>
+    <h1 id="title">Nyan  ss</h1>
+
+
+
+
 
 
     <!-- duoshuo -->
-    <div id="duoshuo">
-        <div class="ds-thread" data-thread-key="nyan" data-title="Nyan" data-url="http://nyan.takwolf.com"></div>
+    <div id="duoshuo-background">
+        <div id="duoshuo-content">
+            <div class="ds-thread" data-thread-key="nyan" data-title="Nyan" data-url="http://nyan.takwolf.com"></div>
+        </div>
     </div>
 
     <!-- duoshuo -->
