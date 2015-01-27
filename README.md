@@ -1,6 +1,6 @@
-# Nyan #
+# Nyan Everywhere #
 
-This will make your page nyan nyan nyan.
+This will make a page nyan nyan nyan.
 
 Please see [http://nyan.takwolf.com](http://nyan.takwolf.com).
 
