@@ -54,7 +54,7 @@
     /* load callback */
     function load() {
         /* init cats */
-        for (var n = 0; n < 10; n++) {
+        for (var n = 0; n < 20; n++) {
             catArray[n] = new Cat();
         }
         /* play bgm */
