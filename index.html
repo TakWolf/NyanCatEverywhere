@@ -7,13 +7,16 @@
     <style>
         body {
             background-color: midnightblue;
-            color: white;
+            color: brown;
         }
         #logo-img {
             position: fixed;
             transform: rotate(45deg);
         }
-
+        #duoshuo {
+            background-color: lavender;
+            padding: 50px;
+        }
     </style>
 </head>
 <body>
@@ -23,7 +26,26 @@
     </a>
 
     <img id="logo-img" src="img/nyancat.gif">
-    <h1>Nyan</h1>
+    <h1>Nyan  ss</h1>
+
+
+    <!-- duoshuo -->
+    <div id="duoshuo">
+        <div class="ds-thread" data-thread-key="nyan" data-title="Nyan" data-url="http://nyan.takwolf.com"></div>
+    </div>
+
+    <!-- duoshuo -->
+    <script>
+        var duoshuoQuery = {short_name:"nyan"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
 
 </body>
 </html>
