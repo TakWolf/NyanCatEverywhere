@@ -1,23 +1,5 @@
 # Nyan #
 
-NyanNyanNyanNyanNyan
+This will make your page nyan nyan nyan~
 
-[Nyan](http://nyan.takwolf.com)
-
-## NyanNyan ##
-NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan
-
-
-## NyanNyan ##
-NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan
-
-
-## NyanNyanNyan ##
-NyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyanNyan
-
-
-## Nyan ##
-NyanNyanNyanNyanNyanNyanNyanNyan
-
-
-
+See [http://nyan.takwolf.com](http://nyan.takwolf.com)
