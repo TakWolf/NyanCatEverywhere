@@ -21,7 +21,7 @@ Please see [http://nyan.takwolf.com](http://nyan.takwolf.com).
 ## Developer ##
 
 - [takwolf@foxmail.com](mailto:takwolf@foxmail.com)
-- [http://takwolf.com](http://takwolf.com).
+- [http://takwolf.com](http://takwolf.com)
 
 ## License ##
 
