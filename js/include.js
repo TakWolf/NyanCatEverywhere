@@ -44,12 +44,11 @@
 
     /* listen to the hash url change to load the page */
     function loadUrl() {
-        include.src = window.location.hash.substr(1);
-        if (include.src === null) {
+        if (window.location.hash === "") {
             include.src = document.referrer;
+        } else {
+            include.src = window.location.hash.substr(1);
         }
-
-        console.debug(document.referrer);
     }
     loadUrl();
     window.addEventListener('hashchange', loadUrl, false);
