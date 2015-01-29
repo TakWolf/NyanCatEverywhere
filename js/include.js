@@ -48,6 +48,8 @@
         if (include.src === null) {
             include.src = document.referrer;
         }
+
+        console.debug(document.referrer);
     }
     loadUrl();
     window.addEventListener('hashchange', loadUrl, false);
