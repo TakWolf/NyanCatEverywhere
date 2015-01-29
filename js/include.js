@@ -45,6 +45,9 @@
     /* listen to the hash url change to load the page */
     function loadUrl() {
         include.src = window.location.hash.substr(1);
+        if (include.src === null) {
+            include.src = document.referrer;
+        }
     }
     loadUrl();
     window.addEventListener('hashchange', loadUrl, false);
