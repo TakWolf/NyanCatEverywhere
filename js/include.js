@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/**
- * create an iframe and load target url at hash
- * like 'http://nyandoge.takwolf.com#http://blog.takwolf.com'
- */
 (function() {
+
+    /*
+     * create an iframe and load target url at hash
+     * like 'http://nyandoge.takwolf.com#http://blog.takwolf.com'
+     */
 
     var include = document.createElement('iframe');
     include.style.position = 'fixed'; /* set fixed will not affect layout */
