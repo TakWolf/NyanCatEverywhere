@@ -18,10 +18,13 @@ Please see [http://nyan.takwolf.com](http://nyan.takwolf.com).
 
 [demo link](http://nyan.takwolf.com/christmas#http://nyan.takwolf.com)
 
-## Developer ##
+## Author ##
 
-- [takwolf@foxmail.com](mailto:takwolf@foxmail.com)
-- [http://takwolf.com](http://takwolf.com)
+TakWolf
+
+[takwolf@foxmail.com](mailto:takwolf@foxmail.com)
+
+[http://takwolf.com](http://takwolf.com)
 
 ## License ##
 
