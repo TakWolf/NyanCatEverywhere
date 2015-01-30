@@ -70,7 +70,7 @@
     /* update callback */
     function update(dt) {
         /* create snowflake random */
-        if (getRandomNum(0, 10) === 0) {
+        if (getRandomNum(0, 6) === 0) {
             snowflakeArray.push(new Snowflake());
         }
         /* update snowflake array */
