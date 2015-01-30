@@ -33,7 +33,7 @@
         this.y = -this.img.width;
         this.angle = 0;
         this.moveSpeed = getRandomNum(1, 2);
-        this.rotateSpeed = getRandomNum(-6, 6);
+        this.rotateSpeed = getRandomNum(-4, 4);
         this.img.style.left = this.x + 'px';
         this.img.style.top = this.y + 'px';
         this.img.style.opacity = getRandomNum(70, 100) / 100;
