@@ -1,10 +1,36 @@
-# Nyan Everywhere #
+# Nyan Cat Everywhere #
 
-This will make a page nyan nyan nyan.
+让彩虹猫入侵全世界！喵星人的目标是星辰大海！
 
-Please see [http://nyan.takwolf.com](http://nyan.takwolf.com).
+作战总部主页：[http://nyan.takwolf.com](http://nyan.takwolf.com)
+
+## Usage ##
+
+一个示例用法：
+
+[http://nyan.takwolf.com/nyancat#http://blog.takwolf.com](http://nyan.takwolf.com/nyancat#http://blog.takwolf.com)
+
+要注意的是，URL以“#”作为标识进行分割，后面的部分叫做“锚点”。“锚点”部分的URL地址就是目标页面。上面的例子中目标页面为“http://blog.takwolf.com”，即作者博客。
+
+同理，如果想要入侵作者的微博，你应该在浏览器中输入如下URL:
+
+[http://nyan.takwolf.com/nyancat#http://weibo.com/takwolf](http://nyan.takwolf.com/nyancat#http://weibo.com/takwolf)
+
+代码实现原理上使用了```<iframe>```标签来引入目标页面。大部分的页面都是可以被引入的，但是仍然有一部分页面进行了安全限制，无法使用```<iframe>```的方式来引入。一种常见的方式就是，在http响应头中添加```X-Frame-Options : SAMEORIGIN```标识来告知浏览器拒绝引入```<iframe>```。
+
+Github和QQ空间的页面就无法使用```<iframe>```引入。
+
+你也可以通过引入一个JS脚本的方式来添加彩虹猫效果到你的页面，前提是你是网站的开发者。
+
+以彩虹猫为例，在你的页面中添加如下代码，就可以添加彩虹猫效果：
+
+    <script src="http://nyan.takwolf.com/js/nyancat.js"></script>
+
+当然，你可以将这个JS文件复制到你自己的网站目录下或者CDN服务器上，注意要正确的引入资源文件。JS代码的实现是非侵入的，布局为绝对定位，不会对已有代码和布局造成影响，你可以放心的导入。
 
 ## Demo ##
+
+除了彩虹猫，还有一些其他的例子，你可以试试，使用方式都是相同的。
 
 ### NyanCat ###
 
