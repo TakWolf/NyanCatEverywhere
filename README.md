@@ -10,7 +10,7 @@
 
 [http://nyan.takwolf.com/nyancat#http://blog.takwolf.com](http://nyan.takwolf.com/nyancat#http://blog.takwolf.com)
 
-要注意的是，URL以“#”作为标识进行分割，后面的部分叫做“锚点”。“锚点”部分的URL地址就是目标页面。上面的例子中目标页面为“http://blog.takwolf.com”，即作者博客。
+要注意的是，URL以“#”作为标识进行分割，后面的部分叫做“锚点”。“锚点”部分的URL地址就是目标页面。上面的例子中目标页面为“[http://blog.takwolf.com](http://blog.takwolf.com)”，即作者博客。
 
 同理，如果想要入侵作者的微博，你应该在浏览器中输入如下URL:
 
