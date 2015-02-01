@@ -22,34 +22,43 @@
         return(min + Math.round(rand * range));
     }
 
-    /* snowflake class */
-    function Snowflake() {
+    /* sakura class */
+    function Sakura() {
 
         this.img = document.createElement('img');
-        this.img.src = 'img/snowflake.png';
+        this.img.src = 'img/sakura.png';
         this.img.style.position = 'fixed';
-        this.img.width = getRandomNum(20, 30);
-        this.x = getRandomNum(-this.img.width, window.innerWidth);
-        this.y = -this.img.width;
+        this.img.height = getRandomNum(32, 48);
+        this.x = getRandomNum(-this.img.height, window.innerWidth + window.innerHeight);
+        this.y = -this.img.height;
+        this.moveSpeed = getRandomNum(1, 3);
         this.angle = 0;
-        this.moveSpeed = getRandomNum(1, 2);
-        this.rotateSpeed = getRandomNum(-4, 4);
+        this.turn = 0;
+        this.shaft = getRandomNum(0, 1) === 0 ? 'x' : 'y';
+        this.rotateSpeed = getRandomNum(-100, 100) / 100 * 4;
+        this.overturnSpeed = getRandomNum(-100, 100) / 100 * 8;
         this.img.style.left = this.x + 'px';
         this.img.style.top = this.y + 'px';
-        this.img.style.opacity = getRandomNum(70, 100) / 100;
         document.body.appendChild(this.img);
 
         /* this should call in loop update callback */
         this.update = function(dt) {
+            this.x -= this.moveSpeed;
             this.y += this.moveSpeed;
-            this.angle += this.rotateSpeed;
+            this.img.style.left = this.x + 'px';
             this.img.style.top = this.y + 'px';
-            this.img.style.transform = 'rotate(' + this.angle + 'deg)';
+            this.angle += this.rotateSpeed;
+            this.turn += this.overturnSpeed;
+            if (this.shaft === 'x') {
+                this.img.style.transform = 'rotateX(' + this.turn + 'deg) rotate(' + this.angle + 'deg)';
+            } else {
+                this.img.style.transform = 'rotateY(' + this.turn + 'deg) rotate(' + this.angle + 'deg)';
+            }
         }
 
         /* out of window will remove from array and body */
         this.isOutOfWindow = function() {
-            return this.y > window.innerHeight + this.img.width;
+            return this.y > window.innerHeight + this.img.height || this.x < -this.img.height;
         }
 
         /* remove obj from body */
@@ -59,8 +68,8 @@
 
     }
 
-    /* snowflake array used to manage */
-    var snowflakeArray = [];
+    /* sakura array used to manage */
+    var sakuraArray = [];
 
     /* load callback */
     function load() {
@@ -69,24 +78,24 @@
 
     /* update callback */
     function update(dt) {
-        /* create snowflake random */
-        if (getRandomNum(0, 6) === 0) {
-            snowflakeArray.push(new Snowflake());
+        /* create sakura random */
+        if (getRandomNum(0, 5) === 0) {
+            sakuraArray.push(new Sakura());
         }
-        /* update snowflake array */
-        for (var n = 0; n < snowflakeArray.length; n++) {
-            snowflakeArray[n].update(dt);
+        /* update sakura array */
+        for (var n = 0; n < sakuraArray.length; n++) {
+            sakuraArray[n].update(dt);
         }
-        /* delete snowflake */
-        for (var n = 0; n < snowflakeArray.length; n++) {
-            if (snowflakeArray[n].isOutOfWindow()) {
-                snowflakeArray[n].delete();
-                snowflakeArray.splice(n, 1);
+        /* delete sakura */
+        for (var n = 0; n < sakuraArray.length; n++) {
+            if (sakuraArray[n].isOutOfWindow()) {
+                sakuraArray[n].delete();
+                sakuraArray.splice(n, 1);
                 break;
             }
         }
         /* debug now array length */
-        console.debug('snowflake count : ' + snowflakeArray.length);
+        console.debug('sakura count : ' + sakuraArray.length);
     }
 
     /* in load callback to make sure body element is exist */
