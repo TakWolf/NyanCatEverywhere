@@ -44,6 +44,12 @@ Github和QQ空间的页面就无法使用```<iframe>```引入。
 
 [demo link](http://nyan.takwolf.com/christmas#http://nyan.takwolf.com)
 
+### Sakura ###
+
+![Sakura](/img/screenshot-sakura.png)
+
+[demo link](http://nyan.takwolf.com/sakura#http://nyan.takwolf.com)
+
 ## Author ##
 
 TakWolf
