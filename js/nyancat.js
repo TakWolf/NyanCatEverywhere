@@ -72,7 +72,7 @@
         /* play bgm */
         var bgm = document.createElement('audio');
         bgm.autoplay = 'autoplay';
-        bgm.loop = 'loop'; /* FIXME : this is not work */
+        bgm.loop = 'loop';
         var src1 = document.createElement('source');
         src1.src = 'bgm/nyancat.mp3';
         src1.type = 'audio/mpeg';
