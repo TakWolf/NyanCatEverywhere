@@ -24,7 +24,7 @@ Github和QQ空间的页面就无法使用```<iframe>```引入。
 
 以彩虹猫为例，你应该添加如下代码：
 
-    <script src="http://nyan.takwolf.com/js/nyancat.js"></script>
+    <script src="js/nyancat.js"></script>
 
 当然，你可以将这个JS文件复制到你自己的网站目录下或者CDN服务器上，注意要正确的引入资源文件。代码的实现是非侵入的，布局为绝对定位，不会对已有代码和布局造成影响。
 
