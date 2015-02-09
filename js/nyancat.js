@@ -71,12 +71,17 @@
         }
         /* play bgm */
         var bgm = document.createElement('audio');
-        bgm.src = 'bgm/nyancat.mp3';
         bgm.autoplay = 'autoplay';
-        bgm.loop = 'loop'; /* FIXME : this is not work , I don't know why */
-        window.setInterval(function() {
-            bgm.src = 'bgm/nyancat.mp3'; /* FIXME : only this way can work , I am crazy !!! */
-        }, 27097.687);
+        bgm.loop = 'loop'; /* FIXME : this is not work */
+        var src1 = document.createElement('source');
+        src1.src = 'bgm/nyancat.mp3';
+        src1.type = 'audio/mpeg';
+        bgm.appendChild(src1);
+        var src2 = document.createElement('source');
+        src2.src = 'bgm/nyancat.ogg';
+        src2.type = 'audio/ogg';
+        bgm.appendChild(src2);
+        document.body.appendChild(bgm);
     }
 
     /* update callback */
