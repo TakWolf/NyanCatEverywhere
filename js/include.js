@@ -21,7 +21,11 @@
      */
 
     var include = document.createElement('iframe');
-    include.style.position = 'fixed'; /* set fixed will not affect layout */
+    include.style.position = 'fixed';
+    include.style.top = '0px';
+    include.style.left = '0px';
+    include.style.width = '100%';
+    include.style.height = '100%';
     include.frameBorder = 0;
 
     /* make sure that iframe is the first element in body */
@@ -32,16 +36,6 @@
             document.body.appendChild(include);
         }
     }, false);
-
-    /* adjust the iframe size equal to the window size */
-    function adjustSize() {
-        include.style.top = '0px';
-        include.style.left = '0px';
-        include.width = window.innerWidth;
-        include.height = window.innerHeight;
-    }
-    adjustSize();
-    window.addEventListener('resize', adjustSize, false);
 
     /* listen to the hash url change to load the page */
     function loadUrl() {
