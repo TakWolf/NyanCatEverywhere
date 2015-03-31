@@ -100,17 +100,8 @@
             color: black;
             font-size: 1.4rem;
         }
-        #duoshuo-background {
-            background-color: lavender;
-            padding: 20px;
-        }
         @media (min-width: 1000px) {
             .card-page {
-                width: 960px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            #duoshuo-content {
                 width: 960px;
                 margin-left: auto;
                 margin-right: auto;
@@ -166,26 +157,6 @@
             var input = document.getElementById(id);
             window.open('http://nyan.takwolf.com/' + id.substr(3) + "#" + input.value);
         }
-    </script>
-
-    <!-- duoshuo -->
-    <div id="duoshuo-background">
-        <div id="duoshuo-content">
-            <div class="ds-thread" data-thread-key="nyan" data-title="Nyan" data-url="http://nyan.takwolf.com"></div>
-        </div>
-    </div>
-
-    <!-- duoshuo -->
-    <script>
-        var duoshuoQuery = {short_name:"nyan"};
-        (function() {
-            var ds = document.createElement('script');
-            ds.type = 'text/javascript';ds.async = true;
-            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-            ds.charset = 'UTF-8';
-            (document.getElementsByTagName('head')[0]
-            || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
     </script>
 
 </body>
