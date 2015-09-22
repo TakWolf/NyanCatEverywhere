@@ -33,7 +33,7 @@
             this.img.style.left = this.x + 'px';
             this.img.style.top = this.y + 'px';
             this.speed = getRandomNum(1, 5);
-        }
+        };
 
         this.img = document.createElement('img');
         this.img.src = 'img/nyancat.gif';
@@ -56,7 +56,7 @@
                     this.wait = true;
                 }
             }
-        }
+        };
 
     }
 

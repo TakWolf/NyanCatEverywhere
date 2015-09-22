@@ -45,17 +45,17 @@
             this.angle += this.rotateSpeed;
             this.img.style.top = this.y + 'px';
             this.img.style.transform = 'rotate(' + this.angle + 'deg)';
-        }
+        };
 
         /* out of window will remove from array and body */
         this.isOutOfWindow = function() {
             return this.y > window.innerHeight + this.img.width;
-        }
+        };
 
         /* remove obj from body */
         this.delete = function() {
             document.body.removeChild(this.img);
-        }
+        };
 
     }
 

@@ -55,17 +55,17 @@
             } else {
                 this.img.style.transform = 'rotateY(' + this.turn + 'deg) rotate(' + this.angle + 'deg)';
             }
-        }
+        };
 
         /* out of window will remove from array and body */
         this.isOutOfWindow = function() {
             return this.y > window.innerHeight + this.img.height || this.x < -this.img.height;
-        }
+        };
 
         /* remove obj from body */
         this.delete = function() {
             document.body.removeChild(this.img);
-        }
+        };
 
     }
 
