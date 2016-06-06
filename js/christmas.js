@@ -60,7 +60,7 @@
     }
 
     /* snowflake array used to manage */
-    var snowflakeArray = [];
+    var snowflakes = [];
 
     /* load callback */
     function load() {
@@ -71,22 +71,22 @@
     function update(dt) {
         /* create snowflake random */
         if (getRandomNum(0, 6) === 0) {
-            snowflakeArray.push(new Snowflake());
+            snowflakes.push(new Snowflake());
         }
         /* update snowflake array */
-        for (var n = 0; n < snowflakeArray.length; n++) {
-            snowflakeArray[n].update(dt);
-        }
+        snowflakes.forEach(function (snowflake) {
+            snowflake.update(dt);
+        });
         /* delete snowflake */
-        for (var n = 0; n < snowflakeArray.length; n++) {
-            if (snowflakeArray[n].isOutOfWindow()) {
-                snowflakeArray[n].delete();
-                snowflakeArray.splice(n, 1);
+        for (var n = 0; n < snowflakes.length; n++) {
+            if (snowflakes[n].isOutOfWindow()) {
+                snowflakes[n].delete();
+                snowflakes.splice(n, 1);
                 break;
             }
         }
         /* debug now array length */
-        console.debug('snowflake count : ' + snowflakeArray.length);
+        console.debug('snowflake count : ' + snowflakes.length);
     }
 
     /* in load callback to make sure body element is exist */
