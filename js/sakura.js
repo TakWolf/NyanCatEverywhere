@@ -70,7 +70,7 @@
     }
 
     /* sakura array used to manage */
-    var sakuraArray = [];
+    var sakuras = [];
 
     /* load callback */
     function load() {
@@ -81,22 +81,22 @@
     function update(dt) {
         /* create sakura random */
         if (getRandomNum(0, 5) === 0) {
-            sakuraArray.push(new Sakura());
+            sakuras.push(new Sakura());
         }
         /* update sakura array */
-        for (var n = 0; n < sakuraArray.length; n++) {
-            sakuraArray[n].update(dt);
-        }
+        sakuras.forEach(function (sakura) {
+            sakura.update(dt);
+        });
         /* delete sakura */
-        for (var n = 0; n < sakuraArray.length; n++) {
-            if (sakuraArray[n].isOutOfWindow()) {
-                sakuraArray[n].delete();
-                sakuraArray.splice(n, 1);
+        for (var n = 0; n < sakuras.length; n++) {
+            if (sakuras[n].isOutOfWindow()) {
+                sakuras[n].delete();
+                sakuras.splice(n, 1);
                 break;
             }
         }
         /* debug now array length */
-        console.debug('sakura count : ' + sakuraArray.length);
+        console.debug('sakura count : ' + sakuras.length);
     }
 
     /* in load callback to make sure body element is exist */
