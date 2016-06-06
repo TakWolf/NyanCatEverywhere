@@ -61,13 +61,13 @@
     }
 
     /* cat array used to manage */
-    var catArray = [];
+    var cats = [];
 
     /* load callback */
     function load() {
         /* init cats */
         for (var n = 0; n < 20; n++) {
-            catArray[n] = new Cat();
+            cats[n] = new Cat();
         }
         /* play bgm */
         var bgm = document.createElement('audio');
@@ -86,9 +86,9 @@
 
     /* update callback */
     function update(dt) {
-        for (var n = 0; n < catArray.length; n++) {
-            catArray[n].update(dt);
-        }
+        cats.forEach(function (cat) {
+            cat.update(dt);
+        });
     }
 
     /* in load callback to make sure body element is exist */
