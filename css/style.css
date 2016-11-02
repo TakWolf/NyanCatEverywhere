@@ -1,0 +1,54 @@
+/* clear all padding and margin */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    background-color: midnightblue;
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.title {
+    font-size: 40px;
+    margin-top: 40px;
+    padding: 24px;
+}
+
+.card {
+    margin: 24px;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: gainsboro;
+}
+
+.card .screenshot {
+    margin: 8px;
+}
+
+.card .go-url {
+    margin-right: 6px;
+    width: 70%;
+    height: 40px;
+    font-size: 20px;
+}
+.card .go-button {
+    margin-left: 6px;
+    width: 60px;
+    height: 40px;
+    font-size: 20px;
+}
