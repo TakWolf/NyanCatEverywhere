@@ -22,20 +22,18 @@
 
     var include = document.createElement('iframe');
     include.style.position = 'fixed';
-    include.style.top = '0px';
-    include.style.left = '0px';
+    include.style.left = '0';
+    include.style.top = '0';
     include.style.width = '100%';
     include.style.height = '100%';
-    include.frameBorder = 0;
+    include.frameBorder = '0';
 
     /* make sure that iframe is the first element in body */
-    window.addEventListener('load', function() {
-        if (document.body.hasChildNodes()) {
-            document.body.insertBefore(include, document.body.firstChild);
-        } else {
-            document.body.appendChild(include);
-        }
-    }, false);
+    if (document.body.hasChildNodes()) {
+        document.body.insertBefore(include, document.body.firstChild);
+    } else {
+        document.body.appendChild(include);
+    }
 
     /* listen to the hash url change to load the page */
     function loadUrl() {
