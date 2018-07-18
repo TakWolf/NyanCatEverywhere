@@ -89,8 +89,8 @@
         console.debug('snowflake count : ' + snowflakes.length);
     }
 
-    /* in load callback to make sure body element is exist */
-    window.addEventListener('load', function() {
+    /* start loop engine */
+    function start() {
         /* make a fps loop frame */
         var fps = 60;
         var lastTime = new Date().getTime();
@@ -106,6 +106,7 @@
         load();
         /* start loop as soon as possible */
         window.setInterval(loop, 1);
-    }, false);
+    }
+    start();
 
 })();
