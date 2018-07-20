@@ -71,8 +71,8 @@
         }
         /* play bgm */
         var bgm = document.createElement('audio');
-        bgm.autoplay = 'autoplay';
-        bgm.loop = 'loop';
+        bgm.autoplay = true;
+        bgm.loop = true;
         var src1 = document.createElement('source');
         src1.src = 'bgm/nyancat.mp3';
         src1.type = 'audio/mpeg';

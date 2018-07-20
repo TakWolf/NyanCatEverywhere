@@ -36,7 +36,7 @@
         this.rotateSpeed = getRandomNum(-4, 4);
         this.img.style.left = this.x + 'px';
         this.img.style.top = this.y + 'px';
-        this.img.style.opacity = getRandomNum(70, 100) / 100;
+        this.img.style.opacity = (getRandomNum(70, 100) / 100).toString();
         document.body.appendChild(this.img);
 
         /* this should call in loop update callback */

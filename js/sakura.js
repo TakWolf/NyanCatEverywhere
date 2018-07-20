@@ -39,7 +39,7 @@
         this.overturnSpeed = getRandomNum(-100, 100) / 100 * 8;
         this.img.style.left = this.x + 'px';
         this.img.style.top = this.y + 'px';
-        this.img.style.opacity = 0.8;
+        this.img.style.opacity = 0.8.toString();
         document.body.appendChild(this.img);
 
         /* this should call in loop update callback */
