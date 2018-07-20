@@ -97,9 +97,9 @@
         var loop = function() {
             var nowTime = new Date().getTime();
             var deltaTime = nowTime - lastTime;
-            if(deltaTime - 1000/fps >= 0) {
+            if (deltaTime - 1000 / fps >= 0) {
                 lastTime = nowTime;
-                update(deltaTime/1000);
+                update(deltaTime / 1000);
             }
         };
         /* load callback */

@@ -37,7 +37,7 @@
 
     /* listen to the hash url change to load the page */
     function loadUrl() {
-        if (window.location.hash === "") {
+        if (window.location.hash === '') {
             include.src = document.referrer;
         } else {
             include.src = window.location.hash.substr(1);
