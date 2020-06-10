@@ -37,19 +37,19 @@ Github和QQ空间的页面就是通过这种方式而无法使用。
 
 ![NyanCat](img/screenshot-nyancat.png)
 
-[demo link](https://nyan.takwolf.com/nyancat.html#https://blog.takwolf.com)
+[查看效果](https://nyan.takwolf.com/nyancat.html#https://blog.takwolf.com)
 
 ### 雪花
 
 ![Snowflake](img/screenshot-snowflake.png)
 
-[demo link](https://nyan.takwolf.com/snowflake.html#https://blog.takwolf.com)
+[查看效果](https://nyan.takwolf.com/snowflake.html#https://blog.takwolf.com)
 
 ### 樱花
 
 ![Sakura](img/screenshot-sakura.png)
 
-[demo link](https://nyan.takwolf.com/sakura.html#https://blog.takwolf.com)
+[查看效果](https://nyan.takwolf.com/sakura.html#https://blog.takwolf.com)
 
 ## 作者
 
