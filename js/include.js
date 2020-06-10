@@ -15,9 +15,9 @@
  */
 (function() {
 
-    /*
+    /**
      * create an iframe and load target url at hash
-     * like 'http://nyan.takwolf.com#http://blog.takwolf.com'
+     * like 'https://nyan.takwolf.com#https://blog.takwolf.com'
      */
 
     var include = document.createElement('iframe');
