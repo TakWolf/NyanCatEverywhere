@@ -15,17 +15,17 @@
  */
 (function() {
 
-    /* return a int random num */
+    // return a int random num
     function getRandomNum(min, max) {
         var range = max - min;
         var rand = Math.random();
         return(min + Math.round(rand * range));
     }
 
-    /* cat class */
+    // cat class
     function Cat() {
 
-        /* reset position xy and speed */
+        // reset position xy and speed
         this.reset = function() {
             this.img.width = getRandomNum(100, 200);
             this.x = -this.img.width;
@@ -38,14 +38,14 @@
         this.img = document.createElement('img');
         this.img.src = 'img/nyancat.gif';
         this.img.style.position = 'fixed';
-        this.wait = true; /* ture is not display */
+        this.wait = true; // ture is not display
         document.body.appendChild(this.img);
         this.reset();
 
-        /* this should call in loop update callback */
+        // this should call in loop update callback
         this.update = function(dt) {
             if (this.wait) {
-                if (getRandomNum(0, 180) === 0) { /* about 3 seconds */
+                if (getRandomNum(0, 180) === 0) { // about 3 seconds
                     this.wait = false;
                     this.reset();
                 }
@@ -60,16 +60,16 @@
 
     }
 
-    /* cat array used to manage */
+    // cat array used to manage
     var cats = [];
 
-    /* load callback */
+    // load callback
     function load() {
-        /* init cats */
+        // init cats
         for (var n = 0; n < 20; n++) {
             cats[n] = new Cat();
         }
-        /* play bgm */
+        // play bgm
         var bgm = document.createElement('audio');
         bgm.autoplay = true;
         bgm.loop = true;
@@ -84,16 +84,16 @@
         document.body.appendChild(bgm);
     }
 
-    /* update callback */
+    // update callback
     function update(dt) {
         cats.forEach(function (cat) {
             cat.update(dt);
         });
     }
 
-    /* start loop engine */
+    // start loop engine
     function start() {
-        /* make a fps loop frame */
+        // make a fps loop frame
         var fps = 60;
         var lastTime = new Date().getTime();
         var loop = function() {
@@ -104,9 +104,9 @@
                 update(deltaTime / 1000);
             }
         };
-        /* load callback */
+        // load callback
         load();
-        /* start loop as soon as possible */
+        // start loop as soon as possible
         window.setInterval(loop, 1);
     }
     start();

@@ -15,14 +15,14 @@
  */
 (function() {
 
-    /* return a int random num */
+    // return a int random num
     function getRandomNum(min, max) {
         var range = max - min;
         var rand = Math.random();
         return(min + Math.round(rand * range));
     }
 
-    /* snowflake class */
+    // snowflake class
     function Snowflake() {
 
         this.img = document.createElement('img');
@@ -39,7 +39,7 @@
         this.img.style.opacity = (getRandomNum(70, 100) / 100).toString();
         document.body.appendChild(this.img);
 
-        /* this should call in loop update callback */
+        // this should call in loop update callback
         this.update = function(dt) {
             this.y += this.moveSpeed;
             this.angle += this.rotateSpeed;
@@ -47,37 +47,37 @@
             this.img.style.transform = 'rotate(' + this.angle + 'deg)';
         };
 
-        /* out of window will remove from array and body */
+        // out of window will remove from array and body
         this.isOutOfWindow = function() {
             return this.y > window.innerHeight + this.img.width;
         };
 
-        /* remove obj from body */
+        // remove obj from body
         this.delete = function() {
             document.body.removeChild(this.img);
         };
 
     }
 
-    /* snowflake array used to manage */
+    // snowflake array used to manage
     var snowflakes = [];
 
-    /* load callback */
+    // load callback
     function load() {
         // nothing to do
     }
 
-    /* update callback */
+    // update callback
     function update(dt) {
-        /* create snowflake random */
+        // create snowflake random
         if (getRandomNum(0, 6) === 0) {
             snowflakes.push(new Snowflake());
         }
-        /* update snowflake array */
+        // update snowflake array
         snowflakes.forEach(function (snowflake) {
             snowflake.update(dt);
         });
-        /* delete snowflake */
+        // delete snowflake
         for (var n = 0; n < snowflakes.length; n++) {
             if (snowflakes[n].isOutOfWindow()) {
                 snowflakes[n].delete();
@@ -85,13 +85,13 @@
                 break;
             }
         }
-        /* debug now array length */
+        // debug now array length
         console.debug('snowflake count : ' + snowflakes.length);
     }
 
-    /* start loop engine */
+    // start loop engine
     function start() {
-        /* make a fps loop frame */
+        // make a fps loop frame
         var fps = 60;
         var lastTime = new Date().getTime();
         var loop = function() {
@@ -102,9 +102,9 @@
                 update(deltaTime / 1000);
             }
         };
-        /* load callback */
+        // load callback
         load();
-        /* start loop as soon as possible */
+        // start loop as soon as possible
         window.setInterval(loop, 1);
     }
     start();

@@ -15,14 +15,14 @@
  */
 (function() {
 
-    /* return a int random num */
+    // return a int random num
     function getRandomNum(min, max) {
         var range = max - min;
         var rand = Math.random();
         return(min + Math.round(rand * range));
     }
 
-    /* sakura class */
+    // sakura class
     function Sakura() {
 
         this.img = document.createElement('img');
@@ -42,7 +42,7 @@
         this.img.style.opacity = 0.8.toString();
         document.body.appendChild(this.img);
 
-        /* this should call in loop update callback */
+        // this should call in loop update callback
         this.update = function(dt) {
             this.x -= this.moveSpeed;
             this.y += this.moveSpeed;
@@ -57,37 +57,37 @@
             }
         };
 
-        /* out of window will remove from array and body */
+        // out of window will remove from array and body
         this.isOutOfWindow = function() {
             return this.y > window.innerHeight + this.img.height || this.x < -this.img.height;
         };
 
-        /* remove obj from body */
+        // remove obj from body
         this.delete = function() {
             document.body.removeChild(this.img);
         };
 
     }
 
-    /* sakura array used to manage */
+    // sakura array used to manage
     var sakuras = [];
 
-    /* load callback */
+    // load callback
     function load() {
         // nothing to do
     }
 
-    /* update callback */
+    // update callback
     function update(dt) {
-        /* create sakura random */
+        // create sakura random
         if (getRandomNum(0, 5) === 0) {
             sakuras.push(new Sakura());
         }
-        /* update sakura array */
+        // update sakura array
         sakuras.forEach(function (sakura) {
             sakura.update(dt);
         });
-        /* delete sakura */
+        // delete sakura
         for (var n = 0; n < sakuras.length; n++) {
             if (sakuras[n].isOutOfWindow()) {
                 sakuras[n].delete();
@@ -95,13 +95,13 @@
                 break;
             }
         }
-        /* debug now array length */
+        // debug now array length
         console.debug('sakura count : ' + sakuras.length);
     }
 
-    /* start loop engine */
+    // start loop engine
     function start() {
-        /* make a fps loop frame */
+        // make a fps loop frame
         var fps = 60;
         var lastTime = new Date().getTime();
         var loop = function() {
@@ -112,9 +112,9 @@
                 update(deltaTime / 1000);
             }
         };
-        /* load callback */
+        // load callback
         load();
-        /* start loop as soon as possible */
+        // start loop as soon as possible
         window.setInterval(loop, 1);
     }
     start();
