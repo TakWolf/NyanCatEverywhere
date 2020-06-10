@@ -1,54 +1,57 @@
-# Nyan Cat Everywhere #
+# Nyan Cat Everywhere
 
 让彩虹猫入侵全世界！喵星人的目标是星辰大海！
 
-作战总部主页：[http://nyan.takwolf.com](http://nyan.takwolf.com)
+作战指挥总部：[https://nyan.takwolf.com](https://nyan.takwolf.com)
 
-## Usage ##
+## 用法
 
-一个示例用法：
+举个🌰，你可以通过构造下面的 URL 来观看效果：
 
-[http://nyan.takwolf.com/nyancat.html#http://blog.takwolf.com](http://nyan.takwolf.com/nyancat.html#http://blog.takwolf.com)
+[https://nyan.takwolf.com/nyancat.html#https://blog.takwolf.com](https://nyan.takwolf.com/nyancat.html#https://blog.takwolf.com)
 
-要注意的是，URL以“#”作为标识进行分割，后面的部分叫做“锚点”。“锚点”部分的URL地址就是目标页面。上面的例子中目标页面为“[http://blog.takwolf.com](http://blog.takwolf.com)”，即作者博客。
+需要注意的是，URL 以“#”（在 HTML 中被称为“ hash ”）进行分割，前边的部分为提供效果的容器页面地址，后面的部分为目标页面地址 。
+上面的示例中目标页面为“ [https://blog.takwolf.com](https://blog.takwolf.com) ”，即作者的博客。
+具体的原理为，容器页面使用了`<iframe>`标签来载入目标页面。
 
-代码实现原理上使用了```<iframe>```标签来引入目标页面。大部分的页面都是可以被引入的，但是仍然有一部分页面进行了安全限制，无法使用```<iframe>```的方式来引入。一种常见的方式就是，在http响应头中添加```X-Frame-Options : SAMEORIGIN```标识来告知浏览器拒绝引入```<iframe>```。
+大部分的页面都是可以被引入的，但是仍然有一部分页面进行了安全限制，无法使用```<iframe>```的方式来引入。
+一种常见的方式就是，在http响应头中添加```X-Frame-Options : SAMEORIGIN```标识来告知浏览器拒绝引入```<iframe>```。
+Github和QQ空间的页面就是通过这种方式而无法使用。
 
-Github和QQ空间的页面就无法使用```<iframe>```引入。
+在部分浏览器下，由于安全侧略的限制，也不能设置目标页面为`http`协议，必须为`https`。
 
-你也可以通过引入一个JS脚本的方式来添加彩虹猫效果到你的页面（前提是你是网站的开发者）。
-
-以彩虹猫为例，你应该添加如下代码：
+当然你也可以通过引入一个JS脚本的方式来添加彩虹猫效果到你的页面，前提是你是网站的开发者。
+以彩虹猫为例，你应该拷贝相关资源到你的网站目录（注意资源位置关系），并在你的页面添加如下代码：
 
 ```
 <script src="js/nyancat.js"></script>
 ```
 
-当然，你可以将这个JS文件复制到你自己的网站目录下或者CDN服务器上，注意要正确的引入资源文件。代码的实现是非侵入的，布局为绝对定位，不会对已有代码和布局造成影响。
+所有效果产生的元素的布局都是绝对定位的，通常不会对已有布局造成影响。
 
-## Demo ##
+## 效果
 
-除了彩虹猫，还有一些其他的例子，你可以试试，使用方式都是相同的。
+除了彩虹猫，还有一些其他的效果，你可以试试。使用方式都是相同的。
 
-### NyanCat ###
+### 彩虹猫
 
 ![NyanCat](img/screenshot-nyancat.png)
 
-[demo link](http://nyan.takwolf.com/nyancat.html#http://blog.takwolf.com)
+[demo link](https://nyan.takwolf.com/nyancat.html#https://blog.takwolf.com)
 
-### Snowflake ###
+### 雪花
 
 ![Snowflake](img/screenshot-snowflake.png)
 
-[demo link](http://nyan.takwolf.com/snowflake.html#http://blog.takwolf.com)
+[demo link](https://nyan.takwolf.com/snowflake.html#https://blog.takwolf.com)
 
-### Sakura ###
+### 樱花
 
 ![Sakura](img/screenshot-sakura.png)
 
-[demo link](http://nyan.takwolf.com/sakura.html#http://blog.takwolf.com)
+[demo link](https://nyan.takwolf.com/sakura.html#https://blog.takwolf.com)
 
-## Author ##
+## 作者
 
 TakWolf
 
@@ -56,7 +59,7 @@ TakWolf
 
 [http://takwolf.com](http://takwolf.com)
 
-## License ##
+## 协议
 
 ```
 Copyright 2015 TakWolf
