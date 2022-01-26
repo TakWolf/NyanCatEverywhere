@@ -20,11 +20,13 @@ body {
 .page {
     padding: 64px 192px;
 }
+
 @media screen and (max-width: 1024px) {
     .page {
         padding: 64px 64px;
     }
 }
+
 @media screen and (max-width: 750px) {
     .page {
         padding: 64px 16px;
