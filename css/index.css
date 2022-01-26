@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: midnightblue;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(45deg);
+    z-index: -9999;
+    opacity: 0.6;
+}
+
+.page {
+    padding: 64px 192px;
+}
+@media screen and (max-width: 1024px) {
+    .page {
+        padding: 64px 64px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .page {
+        padding: 64px 16px;
+    }
+}
+
+.title {
+    margin-top: 96px;
+    margin-bottom: 96px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    line-height: 40px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-box .tip {
+    color: white;
+    font-size: 20px;
+}
+
+.input-box .target-url {
+    margin-top: 8px;
+    padding: 4px;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.effect-tip {
+    margin-top: 48px;
+    color: white;
+    font-size: 20px;
+}
+
+.effect-box {
+    margin-top: 24px;
+    margin-bottom: 64px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.effect-box .card {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.effect-box .card .screenshot {}
+
+.effect-box .card .btn-go {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 24px;
+}

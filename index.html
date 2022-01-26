@@ -4,44 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>Nyan Cat Everywhere</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/fork-me-on-github.css">
 </head>
 <body>
 
-    <a href="https://github.com/TakWolf/NyanCatEverywhere" target="_blank">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="img/fork_me_on_github.png" alt="Fork me on GitHub">
-    </a>
+<span id="fork-me-on-github">
+    <a href="https://github.com/TakWolf/NyanCatEverywhere" target="_blank">Fork me on GitHub</a>
+</span>
 
-    <img class="logo" src="img/nyancat.gif">
+<img class="logo" src="img/nyancat.gif" alt="logo">
+
+<div class="page">
     <h1 class="title">Nyan Cat Everywhere</h1>
 
-    <div class="card">
-        <img class="screenshot" src="img/screenshot-nyancat.png">
-        <br>
-        <input id="go-nyancat" class="go-url" type="text" value="https://blog.takwolf.com">
-        <input class="go-button" type="button" value="GO" onclick="go('go-nyancat')">
+    <div class="input-box">
+        <label class="tip" for="target-url">Input target website link url:</label>
+        <input id="target-url" class="target-url" type="text" value="https://www.bilibili.com" placeholder="Like: https://www.bilibili.com">
     </div>
 
-    <div class="card">
-        <img class="screenshot" src="img/screenshot-snowflake.png">
-        <br>
-        <input id="go-snowflake" class="go-url" type="text" value="https://blog.takwolf.com">
-        <input class="go-button" type="button" value="GO" onclick="go('go-snowflake')">
-    </div>
+    <p class="effect-tip">Then select an effect:</p>
 
-    <div class="card">
-        <img class="screenshot" src="img/screenshot-sakura.png">
-        <br>
-        <input id="go-sakura" class="go-url" type="text" value="https://blog.takwolf.com">
-        <input class="go-button" type="button" value="GO" onclick="go('go-sakura')">
-    </div>
+    <div class="effect-box">
+        <div class="card">
+            <img class="screenshot" src="img/screenshot-nyancat.png" alt="screenshot-nyancat">
+            <button class="btn-go" onclick="go('nyancat')">GO</button>
+        </div>
 
-    <script>
-        function go(id) {
-            var input = document.getElementById(id);
-            window.open(id.substr(3) + ".html#" + input.value);
-        }
-    </script>
+        <div class="card">
+            <img class="screenshot" src="img/screenshot-snowflake.png" alt="screenshot-snowflake">
+            <button class="btn-go" onclick="go('snowflake')">GO</button>
+        </div>
+
+        <div class="card">
+            <img class="screenshot" src="img/screenshot-sakura.png" alt="screenshot-sakura">
+            <button class="btn-go" onclick="go('sakura')">GO</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function go(id) {
+        var input = document.getElementById('target-url');
+        window.open(id + '.html#' + input.value);
+    }
+</script>
 
 </body>
 </html>
