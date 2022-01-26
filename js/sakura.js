@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 (function() {
-
     // return a int random num
     function getRandomNum(min, max) {
         var range = max - min;
@@ -118,5 +117,4 @@
         window.setInterval(loop, 1);
     }
     start();
-
 })();

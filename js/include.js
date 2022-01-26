@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 (function() {
-
     /**
      * create an iframe and load target url at hash
      * like 'https://nyan.takwolf.com#https://blog.takwolf.com'
@@ -45,5 +44,4 @@
     }
     loadUrl();
     window.addEventListener('hashchange', loadUrl, false);
-
 })();

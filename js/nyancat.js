@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 (function() {
-
     // return a int random num
     function getRandomNum(min, max) {
         var range = max - min;
@@ -24,7 +23,6 @@
 
     // cat class
     function Cat() {
-
         // reset position xy and speed
         this.reset = function() {
             this.img.width = getRandomNum(100, 200);
@@ -57,7 +55,6 @@
                 }
             }
         };
-
     }
 
     // cat array used to manage
@@ -110,5 +107,4 @@
         window.setInterval(loop, 1);
     }
     start();
-
 })();
