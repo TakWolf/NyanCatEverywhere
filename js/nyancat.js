@@ -36,22 +36,22 @@
         this.img = document.createElement('img');
         this.img.src = 'img/nyancat.gif';
         this.img.style.position = 'fixed';
-        this.wait = true; // ture is not display
+        this.waiting = true; // ture is not display
         document.body.appendChild(this.img);
         this.reset();
 
         // this should call in loop update callback
         this.update = function(dt) {
-            if (this.wait) {
+            if (this.waiting) {
                 if (getRandomNum(0, 180) === 0) { // about 3 seconds
-                    this.wait = false;
+                    this.waiting = false;
                     this.reset();
                 }
             } else {
                 this.x += this.speed;
                 this.img.style.left = this.x + 'px';
                 if (this.x > window.innerWidth + this.img.width) {
-                    this.wait = true;
+                    this.waiting = true;
                 }
             }
         };
