@@ -3,9 +3,22 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: Fusion-Pixel;
+    src: url("../font/fusion-pixel.woff2");
+}
+
 body {
-    font-family: sans-serif;
+    font-family: Fusion-Pixel, monospace;
     background-color: midnightblue;
+}
+
+input {
+    font-family: Fusion-Pixel, monospace;
+}
+
+button {
+    font-family: Fusion-Pixel, monospace;
 }
 
 .logo {
@@ -38,7 +51,7 @@ body {
     margin-bottom: 96px;
     text-align: center;
     color: white;
-    font-size: 40px;
+    font-size: 48px;
     line-height: 40px;
 }
 
@@ -49,7 +62,7 @@ body {
 
 .input-box .tip {
     color: white;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .input-box .target-url {
@@ -62,7 +75,7 @@ body {
 .effect-tip {
     margin-top: 48px;
     color: white;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .effect-box {
