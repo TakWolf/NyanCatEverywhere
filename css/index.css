@@ -4,21 +4,21 @@
 }
 
 @font-face {
-    font-family: Fusion-Pixel;
-    src: url("../font/fusion-pixel.woff2");
+    font-family: Ark-Pixel;
+    src: url("../font/ark-pixel-12px-proportional-latin.woff2");
 }
 
 body {
-    font-family: Fusion-Pixel, monospace;
+    font-family: Ark-Pixel, sans-serif;
     background-color: midnightblue;
 }
 
 input {
-    font-family: Fusion-Pixel, monospace;
+    font-family: Ark-Pixel, sans-serif;
 }
 
 button {
-    font-family: Fusion-Pixel, monospace;
+    font-family: Ark-Pixel, sans-serif;
 }
 
 .logo {
@@ -52,6 +52,7 @@ button {
     text-align: center;
     color: white;
     font-size: 48px;
+    font-weight: normal;
     line-height: 40px;
 }
 
