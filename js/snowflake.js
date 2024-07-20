@@ -16,50 +16,48 @@
 (function() {
     // return a int random num
     function getRandomNum(min, max) {
-        var range = max - min;
-        var rand = Math.random();
-        return(min + Math.round(rand * range));
+        let range = max - min
+        let rand = Math.random()
+        return(min + Math.round(rand * range))
     }
 
     // snowflake class
     function Snowflake() {
-
-        this.img = document.createElement('img');
-        this.img.src = 'img/snowflake.png';
-        this.img.style.position = 'fixed';
-        this.img.width = getRandomNum(20, 30);
-        this.x = getRandomNum(-this.img.width, window.innerWidth);
-        this.y = -this.img.width;
-        this.angle = 0;
-        this.moveSpeed = getRandomNum(1, 2);
-        this.rotateSpeed = getRandomNum(-4, 4);
-        this.img.style.left = this.x + 'px';
-        this.img.style.top = this.y + 'px';
-        this.img.style.opacity = (getRandomNum(70, 100) / 100).toString();
-        document.body.appendChild(this.img);
+        this.img = document.createElement('img')
+        this.img.src = 'img/snowflake.png'
+        this.img.style.position = 'fixed'
+        this.img.width = getRandomNum(20, 30)
+        this.x = getRandomNum(-this.img.width, window.innerWidth)
+        this.y = -this.img.width
+        this.angle = 0
+        this.moveSpeed = getRandomNum(1, 2)
+        this.rotateSpeed = getRandomNum(-4, 4)
+        this.img.style.left = this.x + 'px'
+        this.img.style.top = this.y + 'px'
+        this.img.style.opacity = (getRandomNum(70, 100) / 100).toString()
+        document.body.appendChild(this.img)
 
         // this should call in loop update callback
         this.update = function(dt) {
-            this.y += this.moveSpeed;
-            this.angle += this.rotateSpeed;
-            this.img.style.top = this.y + 'px';
-            this.img.style.transform = 'rotate(' + this.angle + 'deg)';
-        };
+            this.y += this.moveSpeed
+            this.angle += this.rotateSpeed
+            this.img.style.top = this.y + 'px'
+            this.img.style.transform = 'rotate(' + this.angle + 'deg)'
+        }
 
         // out of window will remove from array and body
         this.isOutOfWindow = function() {
-            return this.y > window.innerHeight + this.img.width;
-        };
+            return this.y > window.innerHeight + this.img.width
+        }
 
         // remove obj from body
         this.delete = function() {
-            document.body.removeChild(this.img);
-        };
-
+            document.body.removeChild(this.img)
+        }
     }
 
     // snowflake array used to manage
-    var snowflakes = [];
+    let snowflakes = []
 
     // load callback
     function load() {
@@ -70,41 +68,42 @@
     function update(dt) {
         // create snowflake random
         if (getRandomNum(0, 6) === 0) {
-            snowflakes.push(new Snowflake());
+            snowflakes.push(new Snowflake())
         }
         // update snowflake array
         snowflakes.forEach(function (snowflake) {
-            snowflake.update(dt);
-        });
+            snowflake.update(dt)
+        })
         // delete snowflake
-        for (var n = 0; n < snowflakes.length; n++) {
-            if (snowflakes[n].isOutOfWindow()) {
-                snowflakes[n].delete();
-                snowflakes.splice(n, 1);
-                break;
+        snowflakes = snowflakes.filter(function (snowflake) {
+            if (snowflake.isOutOfWindow()) {
+                snowflake.delete()
+                return false
+            } else {
+                return true
             }
-        }
+        })
         // debug now array length
-        console.debug('snowflake count : ' + snowflakes.length);
+        console.debug('snowflake count : ' + snowflakes.length)
     }
 
     // start loop engine
     function start() {
         // make a fps loop frame
-        var fps = 60;
-        var lastTime = new Date().getTime();
-        var loop = function() {
-            var nowTime = new Date().getTime();
-            var deltaTime = nowTime - lastTime;
+        let fps = 60
+        let lastTime = new Date().getTime()
+        let loop = function() {
+            let nowTime = new Date().getTime()
+            let deltaTime = nowTime - lastTime
             if (deltaTime - 1000 / fps >= 0) {
-                lastTime = nowTime;
-                update(deltaTime / 1000);
+                lastTime = nowTime
+                update(deltaTime / 1000)
             }
-        };
+        }
         // load callback
-        load();
+        load()
         // start loop as soon as possible
-        window.setInterval(loop, 1);
+        window.setInterval(loop, 1)
     }
-    start();
-})();
+    start()
+})()
