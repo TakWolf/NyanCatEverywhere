@@ -1,6 +1,7 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 @font-face {
@@ -59,18 +60,18 @@ button {
 .input-box {
     display: flex;
     flex-direction: column;
-}
 
-.input-box .tip {
-    color: white;
-    font-size: 24px;
-}
+    .tip {
+        color: white;
+        font-size: 24px;
+    }
 
-.input-box .target-url {
-    margin-top: 8px;
-    padding: 4px;
-    font-size: 24px;
-    line-height: 24px;
+    .target-url {
+        margin-top: 8px;
+        padding: 4px;
+        font-size: 24px;
+        line-height: 24px;
+    }
 }
 
 .effect-tip {
@@ -85,18 +86,16 @@ button {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}
 
-.effect-box .card {
-    margin: 16px;
-    display: flex;
-    flex-direction: column;
-}
+    .card {
+        margin: 16px;
+        display: flex;
+        flex-direction: column;
 
-.effect-box .card .screenshot {}
-
-.effect-box .card .btn-go {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    font-size: 24px;
+        .btn-go {
+            padding-top: 4px;
+            padding-bottom: 4px;
+            font-size: 24px;
+        }
+    }
 }
