@@ -45,8 +45,7 @@
 
 <script>
     function go(id) {
-        let input = document.getElementById('target-url')
-        window.open(id + '.html#' + input.value)
+        window.open(id + '.html#' + document.getElementById('target-url').value)
     }
 </script>
 

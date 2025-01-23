@@ -13,107 +13,74 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-(function() {
-    // return a int random num
-    function getRandomNum(min, max) {
-        let range = max - min
-        let rand = Math.random()
-        return(min + Math.round(rand * range))
-    }
 
-    // sakura class
-    function Sakura() {
-        this.img = document.createElement('img')
-        this.img.src = 'img/sakura.png'
-        this.img.style.position = 'fixed'
-        this.img.height = getRandomNum(32, 48)
-        this.x = getRandomNum(-this.img.height, window.innerWidth + window.innerHeight)
-        this.y = -this.img.height
-        this.moveSpeed = getRandomNum(1, 3)
+function randomNum(min, max) {
+    return Math.random() * (max - min) + min
+}
+
+class Sakura {
+    constructor() {
+        this.image = new Image()
+        this.image.height = Math.round(randomNum(32, 48))
+        this.image.src = 'img/sakura.png'
+        this.image.style.position = 'fixed'
+        this.image.style.opacity = '0.8'
+        document.body.appendChild(this.image)
+
+        this.x = randomNum(-this.image.height, window.innerWidth + window.innerHeight)
+        this.y = -this.image.height
+        this.moveSpeed = randomNum(50, 120)
         this.angle = 0
         this.turn = 0
-        this.shaft = getRandomNum(0, 1) === 0 ? 'x' : 'y'
-        this.rotateSpeed = getRandomNum(-100, 100) / 100 * 4
-        this.overturnSpeed = getRandomNum(-100, 100) / 100 * 8
-        this.img.style.left = this.x + 'px'
-        this.img.style.top = this.y + 'px'
-        this.img.style.opacity = 0.8.toString()
-        document.body.appendChild(this.img)
+        this.shaft = randomNum(0, 1) < 0.5 ? 'x' : 'y'
+        this.rotateSpeed = randomNum(-180, 180)
+        this.overturnSpeed = randomNum(-360, 360)
+    }
 
-        // this should call in loop update callback
-        this.update = function(dt) {
-            this.x -= this.moveSpeed
-            this.y += this.moveSpeed
-            this.img.style.left = this.x + 'px'
-            this.img.style.top = this.y + 'px'
-            this.angle += this.rotateSpeed
-            this.turn += this.overturnSpeed
-            if (this.shaft === 'x') {
-                this.img.style.transform = 'rotateX(' + this.turn + 'deg) rotate(' + this.angle + 'deg)'
-            } else {
-                this.img.style.transform = 'rotateY(' + this.turn + 'deg) rotate(' + this.angle + 'deg)'
-            }
-        }
+    update(dt) {
+        this.x -= this.moveSpeed * dt
+        this.y += this.moveSpeed * dt
+        this.angle += this.rotateSpeed * dt
+        this.turn += this.overturnSpeed * dt
+    }
 
-        // out of window will remove from array and body
-        this.isOutOfWindow = function() {
-            return this.y > window.innerHeight + this.img.height || this.x < -this.img.height
-        }
-
-        // remove obj from body
-        this.delete = function() {
-            document.body.removeChild(this.img)
+    draw() {
+        this.image.style.left = `${this.x}px`
+        this.image.style.top = `${this.y}px`
+        if (this.shaft === 'x') {
+            this.image.style.transform = `rotateX(${this.turn}deg) rotate(${this.angle}deg)`
+        } else {
+            this.image.style.transform = `rotateY(${this.turn}deg) rotate(${this.angle}deg)`
         }
     }
 
-    // sakura array used to manage
-    let sakuras = []
-
-    // load callback
-    function load() {
-        // nothing to do
+    checkDelete() {
+        if (this.y > window.innerHeight + this.image.height || this.x < -this.image.height) {
+            document.body.removeChild(this.image)
+            return true
+        } else {
+            return false
+        }
     }
+}
 
-    // update callback
-    function update(dt) {
-        // create sakura random
-        if (getRandomNum(0, 5) === 0) {
+let sakuras = []
+
+const fps = 60
+let lastTime = new Date().getTime()
+window.setInterval(() => {
+    const nowTime = new Date().getTime()
+    const deltaTime = nowTime - lastTime
+    if (deltaTime - 1000 / fps >= 0) {
+        lastTime = nowTime
+        if (randomNum(0, 20) <= 1) {
             sakuras.push(new Sakura())
         }
-        // update sakura array
-        sakuras.forEach(function (sakura) {
-            sakura.update(dt)
-        })
-        // delete sakura
-        sakuras = sakuras.filter(function (sakura) {
-            if (sakura.isOutOfWindow()) {
-                sakura.delete()
-                return false
-            } else {
-                return true
-            }
-        })
-        // debug now array length
+        for (const sakura of sakuras) {
+            sakura.update(deltaTime / 1000)
+            sakura.draw()
+        }
+        sakuras = sakuras.filter(sakura => !sakura.checkDelete())
         console.debug('sakura count : ' + sakuras.length)
     }
-
-    // start loop engine
-    function start() {
-        // make a fps loop frame
-        let fps = 60
-        let lastTime = new Date().getTime()
-        let loop = function() {
-            let nowTime = new Date().getTime()
-            let deltaTime = nowTime - lastTime
-            if (deltaTime - 1000 / fps >= 0) {
-                lastTime = nowTime
-                update(deltaTime / 1000)
-            }
-        }
-        // load callback
-        load()
-        // start loop as soon as possible
-        window.setInterval(loop, 1)
-    }
-    start()
-})()
+}, 1)

@@ -13,35 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-(function() {
-    /**
-     * create an iframe and load target url at hash
-     * like 'https://nyan.takwolf.com#https://blog.takwolf.com'
-     */
 
-    let include = document.createElement('iframe')
-    include.style.position = 'fixed'
-    include.style.left = '0'
-    include.style.top = '0'
-    include.style.width = '100%'
-    include.style.height = '100%'
-    include.frameBorder = '0'
+const include = document.createElement('iframe')
+include.style.position = 'fixed'
+include.style.left = '0'
+include.style.top = '0'
+include.style.width = '100%'
+include.style.height = '100%'
+include.frameBorder = '0'
+if (document.body.hasChildNodes()) {
+    document.body.insertBefore(include, document.body.firstChild)
+} else {
+    document.body.appendChild(include)
+}
 
-    // make sure that iframe is the first element in body
-    if (document.body.hasChildNodes()) {
-        document.body.insertBefore(include, document.body.firstChild)
+function loadUrl() {
+    if (window.location.hash === '') {
+        include.src = document.referrer
     } else {
-        document.body.appendChild(include)
+        include.src = window.location.hash.substring(1)
     }
-
-    // listen to the hash url change to load the page
-    function loadUrl() {
-        if (window.location.hash === '') {
-            include.src = document.referrer
-        } else {
-            include.src = window.location.hash.substring(1)
-        }
-    }
-    loadUrl()
-    window.addEventListener('hashchange', loadUrl, false)
-})()
+}
+loadUrl()
+window.addEventListener('hashchange', loadUrl, false)

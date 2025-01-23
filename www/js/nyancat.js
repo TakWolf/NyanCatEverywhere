@@ -13,98 +13,78 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-(function() {
-    // return a int random num
-    function getRandomNum(min, max) {
-        let range = max - min
-        let rand = Math.random()
-        return(min + Math.round(rand * range))
-    }
 
-    // cat class
-    function Cat() {
-        // reset position xy and speed
-        this.reset = function() {
-            this.img.width = getRandomNum(100, 200)
-            this.x = -this.img.width
-            this.y = getRandomNum(0, window.innerHeight - 100)
-            this.img.style.left = this.x + 'px'
-            this.img.style.top = this.y + 'px'
-            this.speed = getRandomNum(1, 5)
-        }
+function randomNum(min, max) {
+    return Math.random() * (max - min) + min
+}
 
-        this.img = document.createElement('img')
-        this.img.src = 'img/nyancat.gif'
-        this.img.style.position = 'fixed'
-        this.waiting = true // ture is not display
-        document.body.appendChild(this.img)
+class Cat {
+    constructor() {
+        this.image = new Image()
+        this.image.src = 'img/nyancat.gif'
+        this.image.style.position = 'fixed'
+        document.body.appendChild(this.image)
+
+        this.waiting = true
         this.reset()
+        this.draw()
+    }
 
-        // this should call in loop update callback
-        this.update = function(dt) {
-            if (this.waiting) {
-                if (getRandomNum(0, 180) === 0) { // about 3 seconds
-                    this.waiting = false
-                    this.reset()
-                }
-            } else {
-                this.x += this.speed
-                this.img.style.left = this.x + 'px'
-                if (this.x > window.innerWidth + this.img.width) {
-                    this.waiting = true
-                }
+    reset() {
+        this.image.width = Math.round(randomNum(100, 200))
+        this.x = -this.image.width
+        this.y = randomNum(0, window.innerHeight)
+        this.speed = randomNum(50, 200)
+    }
+
+    update(dt) {
+        if (this.waiting) {
+            if (randomNum(0, 180) <= 1) {
+                this.waiting = false
+            }
+        } else {
+            this.x += this.speed * dt
+            if (this.x > window.innerWidth + this.image.width) {
+                this.waiting = true
+                this.reset()
             }
         }
     }
 
-    // cat array used to manage
-    let cats = []
+    draw() {
+        this.image.style.left = `${this.x - this.image.width / 2}px`
+        this.image.style.top = `${this.y - this.image.height / 2}px`
+    }
+}
 
-    // load callback
-    function load() {
-        // init cats
-        for (let n = 0; n < 20; n++) {
-            cats[n] = new Cat()
+const cats = []
+for (let i = 0; i < 30; i++) {
+    cats.push(new Cat())
+}
+
+const fps = 60
+let lastTime = new Date().getTime()
+window.setInterval(() => {
+    const nowTime = new Date().getTime()
+    const deltaTime = nowTime - lastTime
+    if (deltaTime - 1000 / fps >= 0) {
+        lastTime = nowTime
+        for (const cat of cats) {
+            cat.update(deltaTime / 1000)
+            cat.draw()
         }
-        // play bgm
-        let bgm = document.createElement('audio')
-        bgm.autoplay = true
-        bgm.loop = true
-        let src1 = document.createElement('source')
-        src1.src = 'bgm/nyancat.mp3'
-        src1.type = 'audio/mpeg'
-        bgm.appendChild(src1)
-        let src2 = document.createElement('source')
-        src2.src = 'bgm/nyancat.ogg'
-        src2.type = 'audio/ogg'
-        bgm.appendChild(src2)
-        document.body.appendChild(bgm)
     }
+}, 1)
 
-    // update callback
-    function update(dt) {
-        cats.forEach(function (cat) {
-            cat.update(dt)
-        })
-    }
-
-    // start loop engine
-    function start() {
-        // make a fps loop frame
-        let fps = 60
-        let lastTime = new Date().getTime()
-        let loop = function() {
-            let nowTime = new Date().getTime()
-            let deltaTime = nowTime - lastTime
-            if (deltaTime - 1000 / fps >= 0) {
-                lastTime = nowTime
-                update(deltaTime / 1000)
-            }
-        }
-        // load callback
-        load()
-        // start loop as soon as possible
-        window.setInterval(loop, 1)
-    }
-    start()
-})()
+const bgm = new Audio()
+bgm.autoplay = true
+bgm.loop = true
+const mp3Src = document.createElement('source')
+mp3Src.src = 'bgm/nyancat.mp3'
+mp3Src.type = 'audio/mpeg'
+bgm.appendChild(mp3Src)
+const oggSrc = document.createElement('source')
+oggSrc.src = 'bgm/nyancat.ogg'
+oggSrc.type = 'audio/ogg'
+bgm.appendChild(oggSrc)
+document.body.appendChild(bgm)
