@@ -1,6 +1,6 @@
 # Nyan Cat Everywhere
 
-![Logo](img/nyancat.gif)
+![Logo](www/img/nyancat.gif)
 
 让彩虹猫入侵全世界！喵星人的目标是星辰大海！
 
@@ -36,19 +36,19 @@ https://nyan.takwolf.com/nyancat.html#https://www.bilibili.com
 
 ### 彩虹猫
 
-![NyanCat](img/screenshot-nyancat.png)
+![NyanCat](www/img/screenshot-nyancat.png)
 
 [查看效果](https://nyan.takwolf.com/nyancat.html#https://www.bilibili.com)
 
 ### 雪花
 
-![Snowflake](img/screenshot-snowflake.png)
+![Snowflake](www/img/screenshot-snowflake.png)
 
 [查看效果](https://nyan.takwolf.com/snowflake.html#https://www.bilibili.com)
 
 ### 樱花
 
-![Sakura](img/screenshot-sakura.png)
+![Sakura](www/img/screenshot-sakura.png)
 
 [查看效果](https://nyan.takwolf.com/sakura.html#https://www.bilibili.com)
 
