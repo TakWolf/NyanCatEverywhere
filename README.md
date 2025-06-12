@@ -24,11 +24,13 @@ https://nyan.takwolf.com/nyancat.html#https://www.bilibili.com
 
 容器页面使用了 `<iframe>` 标签来载入目标页面，在此之上添加各种效果，看起来就像在原页面添加了各种特效。
 
-大部分的页面都是可以被引入的，但有一个例外。
+大部分的页面都是可以被载入的，但有一个例外。
 
-如果目标网站在 Http 响应头中添加 `X-Frame-Options : SAMEORIGIN` 标识来告知浏览器拒绝 `<iframe>` 引入外部域，则会失败。 [Github](https://github.com) 目前就启用了该策略。
+如果目标网站在 Http 响应头中添加 `X-Frame-Options : SAMEORIGIN` 标识来告知浏览器只能使用同源的 `<iframe>` 加载，则会失败。 [Github](https://github.com) 目前就启用了该策略。
 
-另外，在部分浏览器下（例如 Chrome），其安全策略不允许在 `https` 中引用 `http` 资源。此时，如果目标网站为 `http` 协议，也会失败。
+另外，在部分浏览器下（例如 Chrome），其安全策略不允许在 `https` 中引用 `http` 资源，即 `Mixed Content` 错误。
+
+将作战指挥部的网址从 `https://nyan.takwolf.com` 改为 `http://nyan.takwolf.com` 有可能解决该问题。
 
 ## 效果
 
